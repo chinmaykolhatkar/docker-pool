@@ -55,3 +55,4 @@ echo 'root:sc@mb0t' |chpasswd
 useradd apex -s /bin/bash -U -G sudo -p apex -m
 echo "apex:apex" |chpasswd
 echo 'apex ALL=(ALL) NOPASSWD: /etc/init.d/hadoop*' >> /etc/sudoers
+echo 'apex ALL=(ALL) NOPASSWD: /etc/init.d/ssh*' >> /etc/sudoers
