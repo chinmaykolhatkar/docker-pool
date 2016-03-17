@@ -6,7 +6,7 @@ apt-get -y -o APT::Immediate-Configure=false install wget
 wget -O- http://archive.apache.org/dist/bigtop/bigtop-1.1.0/repos/GPG-KEY-bigtop | sudo apt-key add -
 wget -O /etc/apt/sources.list.d/bigtop-1.1.0.list http://archive.apache.org/dist/bigtop/bigtop-1.1.0/repos/`lsb_release --codename --short`/bigtop.list
 apt-get update -y
-apt-get install -y -q --no-install-recommends openjdk-7-jre-headless vim screen curl sudo unzip openssh-server hadoop\*
+apt-get install -y -q --no-install-recommends openjdk-7-jre-headless vim screen curl sudo unzip man openssh-server hadoop\*
 
 wget https://ci.bigtop.apache.org/job/Bigtop-trunk-packages/BUILD_ENVIRONMENTS=ubuntu-14.04,COMPONENTS=apex,label=docker-slave/lastSuccessfulBuild/artifact/output/apex/apex_3.3.0-1_all.deb
 dpkg -i apex_3.3.0-1_all.deb
