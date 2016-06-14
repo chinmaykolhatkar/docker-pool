@@ -9,7 +9,7 @@ docker run -it --name=apex-sandbox chinmayk/apex:ubuntu-14.04
 ##### Start apex cli after launching docker container
 ```
 apex@f935ef8da5e4:~$ apex
-DT CLI 3.3.0-incubating 15.03.2016 @ 09:14:48 UTC rev: 374cf9b branch: 374cf9b7431b2268e429d406e422586bea93ae7c
+DT CLI 3.4.0 15.03.2016 @ 09:14:48 UTC rev: 374cf9b branch: 374cf9b7431b2268e429d406e422586bea93ae7c
 dt> 
 ```
 #### Advanced
