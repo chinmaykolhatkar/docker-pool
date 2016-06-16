@@ -8,21 +8,21 @@ docker run -it --name=apex-sandbox chinmayk/apex:ubuntu-14.04
 ```
 ##### Start apex cli after launching docker container
 ```
-apex@f935ef8da5e4:~$ apex
-DT CLI 3.4.0 15.03.2016 @ 09:14:48 UTC rev: 374cf9b branch: 374cf9b7431b2268e429d406e422586bea93ae7c
-dt> 
+apex@62550653e2d8:~$ apex
+Apex CLI 3.4.0 15.06.2016 @ 08:20:44 UTC rev: 85a2bdd branch: 85a2bdd9bfce49a904b45a4d0d015434d1a89216
+apex> 
 ```
 #### Advanced
 ##### Linux user information
 Username: apex
 Password: apex
 
-**NOTE**: User "apex" is added in sudoers list and is privileged with root permissions.
+**NOTE**: User "apex" is added in sudoers list and is provided with root privileges.
 
 ##### Run docker container with host directory mounted
 This will create and start a docker container and docker images while mounting local filesystem directory as a mount point inside docker container.
 ```
-docker run -it --name=apex-sandbox -v /local/path/to/mount:/mount/location chinmayk/apex:ubuntu-14.04
+docker run -it --name=apex-sandbox -v /local/path/to/mount:/mount_location chinmayk/apex:ubuntu-14.04
 ```
 ##### Start already created docker container
 ```
