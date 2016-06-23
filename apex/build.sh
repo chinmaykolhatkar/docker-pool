@@ -2,5 +2,5 @@
 
 #Build ubuntu 14.04 docker image
 pushd ubuntu
-docker build -t chinmayapache/apex:ubuntu-14.04 .
+docker build -t apacheapex/sandbox:ubuntu-14.04 .
 popd
