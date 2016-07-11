@@ -2,7 +2,7 @@
 
 # Install softwares
 apt-get update -y
-apt-get -y -o APT::Immediate-Configure=false install wget
+apt-get -y -o APT::Immediate-Configure=false install wget curl
 wget -O- http://archive.apache.org/dist/bigtop/bigtop-1.1.0/repos/GPG-KEY-bigtop | sudo apt-key add -
 wget -O /etc/apt/sources.list.d/bigtop-1.1.0.list http://archive.apache.org/dist/bigtop/bigtop-1.1.0/repos/`lsb_release --codename --short`/bigtop.list
 apt-get update -y
@@ -11,6 +11,8 @@ apt-get install -y -q --no-install-recommends openjdk-7-jre-headless vim screen 
 wget https://ci.bigtop.apache.org/job/Bigtop-trunk-packages/BUILD_ENVIRONMENTS=ubuntu-14.04,COMPONENTS=apex,label=docker-slave/lastSuccessfulBuild/artifact/output/apex/apex_3.4.0-1_all.deb
 dpkg -i apex_3.4.0-1_all.deb
 rm apex_3.4.0-1_all.deb
+
+curl -LSO https://www.datatorrent.com/downloads/datatorrent-rts.bin
 
 # Autodetect JAVA_HOME if not defined
 . /usr/lib/bigtop-utils/bigtop-detect-javahome
@@ -43,6 +45,11 @@ EOF
 for i in hadoop-hdfs-namenode hadoop-hdfs-datanode ; do service $i start ; done
 ## initialize HDFS
 /usr/lib/hadoop/libexec/init-hdfs.sh
+
+## install datatorrent gateway
+curl -LSO https://www.datatorrent.com/downloads/datatorrent-rts.bin
+sh ./datatorrent-rts.bin
+
 ## stop HDFS
 for i in hadoop-hdfs-namenode hadoop-hdfs-datanode ; do service $i stop ; done
 ## clean up
@@ -56,3 +63,4 @@ useradd apex -s /bin/bash -U -G sudo -p apex -m
 echo "apex:apex" |chpasswd
 echo 'apex ALL=(ALL) NOPASSWD: /etc/init.d/hadoop*' >> /etc/sudoers
 echo 'apex ALL=(ALL) NOPASSWD: /etc/init.d/ssh*' >> /etc/sudoers
+echo 'apex ALL=(ALL) NOPASSWD: /etc/init.d/dtgateway*' >> /etc/sudoers
