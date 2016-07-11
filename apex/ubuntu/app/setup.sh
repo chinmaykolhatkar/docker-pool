@@ -12,8 +12,6 @@ wget https://ci.bigtop.apache.org/job/Bigtop-trunk-packages/BUILD_ENVIRONMENTS=u
 dpkg -i apex_3.4.0-1_all.deb
 rm apex_3.4.0-1_all.deb
 
-curl -LSO https://www.datatorrent.com/downloads/datatorrent-rts.bin
-
 # Autodetect JAVA_HOME if not defined
 . /usr/lib/bigtop-utils/bigtop-detect-javahome
 
