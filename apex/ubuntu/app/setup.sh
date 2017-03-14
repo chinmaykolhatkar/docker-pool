@@ -8,9 +8,9 @@ wget -O /etc/apt/sources.list.d/bigtop-1.1.0.list http://archive.apache.org/dist
 apt-get update -y
 apt-get install -y -q --no-install-recommends openjdk-7-jre-headless vim screen curl sudo unzip man openssh-server hadoop\*
 
-wget https://ci.bigtop.apache.org/job/Bigtop-trunk-packages/BUILD_ENVIRONMENTS=ubuntu-14.04,COMPONENTS=apex,label=docker-slave/lastSuccessfulBuild/artifact/output/apex/apex_3.4.0-1_all.deb
-dpkg -i apex_3.4.0-1_all.deb
-rm apex_3.4.0-1_all.deb
+wget https://ci.bigtop.apache.org/job/Bigtop-trunk-packages/COMPONENTS=apex,OS=ubuntu-16.04/lastSuccessfulBuild/artifact/output/apex/apex_3.5.0-1_all.deb
+dpkg -i apex_3.5.0-1_all.deb
+rm apex_3.5.0-1_all.deb
 
 # Autodetect JAVA_HOME if not defined
 . /usr/lib/bigtop-utils/bigtop-detect-javahome
