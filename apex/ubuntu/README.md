@@ -4,7 +4,7 @@ This repository contains a ready to use [Apache Apex](http://apex.apache.org/) t
 ##### Run apex docker container
 This will create and start a docker container from the docker image.
 ```
-docker run -it --name=apex-sandbox apacheapex/sandbox:3.4.0
+docker run -it --name=apex-sandbox apacheapex/sandbox:3.5.0
 ```
 ##### Start apex cli after launching docker container
 ```
