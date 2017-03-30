@@ -15,6 +15,7 @@ apex>
 #### Advanced
 ##### Linux user information
 Username: apex
+
 Password: apex
 
 **NOTE**: User "apex" is added in sudoers list and is provided with root privileges.
@@ -23,6 +24,7 @@ Password: apex
 This will create and start a docker container and docker images while mounting local filesystem directory as a mount point inside docker container.
 ```
 docker run -it --name=apex-sandbox -v /local/path/to/mount:/mount_location apacheapex/sandbox:3.5.0
+```
 ##### Start already created docker container
 ```
 docker start -i apex-sandbox
