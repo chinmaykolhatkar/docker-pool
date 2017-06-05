@@ -9,6 +9,7 @@ echo -n "."; sudo /etc/init.d/hadoop-hdfs-namenode restart >/dev/null \
   && echo -n "."; sudo /etc/init.d/hadoop-yarn-resourcemanager restart >/dev/null \
   && echo -n "."; sudo /etc/init.d/hadoop-yarn-nodemanager restart >/dev/null \
   && echo -n "."; sudo /etc/init.d/hadoop-yarn-timelineserver restart >/dev/null \
+  && echo -n "."; sudo /etc/init.d/dtgateway restart >/dev/null \
   && echo -n "."; sudo /etc/init.d/ssh start >/dev/null
 log_end_msg $?
 

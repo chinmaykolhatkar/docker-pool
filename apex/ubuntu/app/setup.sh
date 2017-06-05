@@ -2,7 +2,7 @@
 
 # Install softwares
 apt-get update -y
-apt-get -y -o APT::Immediate-Configure=false install wget
+apt-get -y -o APT::Immediate-Configure=false install wget curl
 wget -O- http://archive.apache.org/dist/bigtop/bigtop-1.1.0/repos/GPG-KEY-bigtop | sudo apt-key add -
 wget -O /etc/apt/sources.list.d/bigtop-1.1.0.list http://archive.apache.org/dist/bigtop/bigtop-1.1.0/repos/`lsb_release --codename --short`/bigtop.list
 apt-get update -y
@@ -43,6 +43,11 @@ EOF
 for i in hadoop-hdfs-namenode hadoop-hdfs-datanode ; do service $i start ; done
 ## initialize HDFS
 /usr/lib/hadoop/libexec/init-hdfs.sh
+
+## install datatorrent gateway
+curl -LSO https://www.datatorrent.com/downloads/datatorrent-rts.bin
+sh ./datatorrent-rts.bin
+
 ## stop HDFS
 for i in hadoop-hdfs-namenode hadoop-hdfs-datanode ; do service $i stop ; done
 ## clean up
@@ -56,3 +61,4 @@ useradd apex -s /bin/bash -U -G sudo -p apex -m
 echo "apex:apex" |chpasswd
 echo 'apex ALL=(ALL) NOPASSWD: /etc/init.d/hadoop*' >> /etc/sudoers
 echo 'apex ALL=(ALL) NOPASSWD: /etc/init.d/ssh*' >> /etc/sudoers
+echo 'apex ALL=(ALL) NOPASSWD: /etc/init.d/dtgateway*' >> /etc/sudoers
